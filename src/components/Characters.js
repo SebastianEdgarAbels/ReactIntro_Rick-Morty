@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from "react";
-import "../views/Home.css";
-import Cards from "./Cards";
-// import SearchAppBar from "./navBar/SearchAppBar.js";
+import React, { useEffect, useState } from 'react';
+import '../views/Home.css';
+import Cards from './Cards';
 
 function Characters({ search, pageNr }) {
-  // console.log("pageNr", pageNr);
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState(null);
 
   const fetchCharacter = () => {
-    // console.log("this page is :>>>", pageNr);
     const url = `https://rickandmortyapi.com/api/character/?page=${pageNr}`;
-    // console.log("url :>> ", url);
     fetch(url)
       .then((response) => response.json())
       .then((result) => {
         let results = result.results;
-        // console.log("result :>> ", results);
         setCharacters(results);
       })
       .catch((error) => {
         setError(error.message);
-        console.log("error :>> ", error);
+        console.log('error :>> ', error);
       });
   };
 
@@ -70,11 +65,3 @@ function Characters({ search, pageNr }) {
 }
 
 export default Characters;
-
-// filteredResultValues().map((character, i) => {
-//           return (
-//             <div key={i} className="flip-card">
-//               <Cards cardChar={character} />
-//             </div>
-//           );
-//         })
