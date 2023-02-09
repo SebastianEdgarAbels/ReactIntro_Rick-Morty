@@ -22,6 +22,7 @@ function Characters({ search, pageNr }) {
 
   useEffect(() => {
     fetchCharacter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNr]);
 
   ///// ### 1 way to do it ### /////
